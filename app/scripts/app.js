@@ -7,10 +7,10 @@
             });
 
         $stateProvider
-            .state('home', {
+            .state('Room', {
                 url: '/',
-                controller: 'HomeCtrl as home',
-                templateUrl: '/templates/home.html'
+                controller: 'RoomCtrl as Room',
+                templateUrl: '/templates/Room.html'
             });
     }
 
