@@ -1,5 +1,17 @@
-<h1>Bloc Chat</h1>
-<h3>Home</h3>
-<div ng-repeat="room in Room.rooms">
-<a href="#">{{ room.$value }}</a>
-</div>
+<section id="left">
+  <nav class="nav">
+    <h2 class = "title">Bloc Chat</h2>
+    <div class="new-room-container">
+      <a class="btn btn-default push" ng-click="Room.open('sm')">New Room</a>
+    </div>
+  </nav>
+
+  <div class="rooms" ng-repeat="room in Room.rooms">
+      {{room.$value}}
+  </div>
+</section>
+
+
+<section id="right">
+
+</section>

@@ -1,0 +1,12 @@
+<div class="modal-demo">
+  <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Create a room</h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+      <input placeholder="Enter room's name." ng-model="roomName" size="37"></input>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="modal.ok(roomName)">OK</button>
+      <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+  </div>
+</div>

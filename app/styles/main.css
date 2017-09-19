@@ -1,0 +1,56 @@
+* {
+ padding: 0;
+ border: 0;
+ margin: 0;
+}
+
+#left {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 250px;
+	background: #1E90FF;
+}
+
+#right {
+	position: absolute;
+	top: 0;
+	left: 250px;
+	bottom: 0;
+	width: 100%;
+	background: #F5F5F5;
+	z-index: 3;
+}
+
+.nav {
+    position: relative;
+    padding: 0.5rem;
+    /* #1 */
+    background-color: #4682B4;
+    border-bottom: 5px solid white;
+    /* #2 */
+    z-index: 1;
+}
+
+.nav .title {
+    position: relative;
+    left: .9rem;
+		color: white;
+    text-shadow: 2px 2px 5px black;
+  }
+
+
+.rooms {
+		padding: 0.5rem;
+		margin-left: 4rem;
+		font-size: 2rem;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+}
+
+.push {
+		padding: 0.5rem;
+		margin-left: .9rem;
+		font-size: 2rem;
+}
