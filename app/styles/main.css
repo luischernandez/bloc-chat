@@ -54,3 +54,8 @@
 		margin-left: .9rem;
 		font-size: 2rem;
 }
+
+.roomName {
+    color: white;
+    text-decoration: underline;
+}

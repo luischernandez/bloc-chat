@@ -7,11 +7,22 @@
   </nav>
 
   <div class="rooms" ng-repeat="room in Room.rooms">
-      {{room.$value}}
+      <a class='roomName' href="#" ng-click="Room.getMessages(room)">{{room.$value}}</a>
+      <!--<div ng-repeat="room in Room.rooms">
+        <button type="button" class="btn btn-light" ng-click= "Room.room = room; Room.showRoom(Room.room.$id)">{{room.$value}}</button>
+      </div>
+  -->
   </div>
 </section>
 
 
 <section id="right">
-
+    <div class="messages-header">
+            <h3>{{ room.currentRoom.name }}</h3>
+        </div>
+        <div class="messages-body" ng-repeat="message in room.messages">
+            <div class="username">{{ message.username }}</div>
+            <div class="timestamp">{{ message.sentAt | date : "shortTime" }}</div>
+            <div class="user-message">{{ message.content }}</div>
+        </div>
 </section>

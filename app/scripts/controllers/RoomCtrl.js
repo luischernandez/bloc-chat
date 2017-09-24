@@ -1,6 +1,12 @@
 (function(){
-    function RoomCtrl(Room, $uibModal, $log) {
+    function RoomCtrl(Room, $uibModal, $log, Message) {
         this.rooms = Room.all;
+        this.room = '';
+        this.getMessages = function(room) {
+            this.currentRoom = room;
+            this.messages = Message.getByRoomId(room);
+        }
+
         this.animationsEnabled = true;
         this.items = ['item1', 'item2', 'item3'];
         this.open = function (size) {
@@ -26,7 +32,6 @@
     });
   };
 
-
     this.toggleAnimation = function () {
          this.animationsEnabled = !this.animationsEnabled;
        };
@@ -34,5 +39,5 @@
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', '$uibModal', '$log', RoomCtrl]);
+        .controller('RoomCtrl', ['Room', '$uibModal', '$log', 'Message', RoomCtrl]);
 })();
