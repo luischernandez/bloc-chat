@@ -5,6 +5,7 @@
         this.getMessages = function(room) {
             this.currentRoom = room;
             this.messages = Message.getByRoomId(room);
+            //console.log(this.getMessages);
         }
 
         this.animationsEnabled = true;
