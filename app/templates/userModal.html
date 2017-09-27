@@ -1,0 +1,7 @@
+<div ng-controller='UserModalCtrl as userModal'>
+  <h3 class="modal-header">Please type a username:</h3>
+    <form>
+      <input type='text' name='username' class="input" ng-model="userModal.username">
+      <button class="btn btn-default setBtn" type="submit" ng-click='userModal.save()'>Set username</button>
+    </form>
+</div>
