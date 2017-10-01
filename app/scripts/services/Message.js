@@ -5,7 +5,12 @@
 
     Message.getByRoomId = function (roomId) {
         return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
-    }
+    };
+
+    Message.createMessage = function(messageObject) {
+        //messageObject.timestamp = magic!
+        $firebaseArray(ref).$add(messageObject)
+    };
 
     return Message;
   }

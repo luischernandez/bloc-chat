@@ -3,6 +3,7 @@
         var Room = {};
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
+        var roomName = $firebaseArray(ref);
 
         Room.all = rooms;
 

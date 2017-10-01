@@ -8,21 +8,24 @@
 
   <div class="rooms" ng-repeat="room in Room.rooms">
       <a class='roomName' href="#" ng-click="Room.getMessages(room.$id)">{{room.roomName}}</a>
-      <!--<div ng-repeat="room in Room.rooms">
-        <button type="button" class="btn btn-light" ng-click= "Room.room = room; Room.showRoom(Room.room.$id)">{{room.$value}}</button>
-      </div>
-  -->
   </div>
 </section>
 
 
 <section id="right">
     <div class="messages-header">
-            <h3>{{Show}}</h3>
+            <h3 ng-show="Room.rooms">{{room.roomName}}</h3>
         </div>
-        <div class="messages-body" ng-repeat="message in Room.messages">
-            <div class="username">{{ message.username }}</div>
+        <div class="message-block" ng-repeat="message in Room.messages">
+            <div class="username">{{ message.username }}:</div>
             <div class="user-message">{{ message.content }}</div>
-            <div class="timestamp">{{ message.timestamp | date : "shortTime" }}</div>
+            <div class="timestamp">{{ message.timeStamp | date : "shortTime" }}</div>
         </div>
+
+
+<div class="message-bar" ng-show=Room.currentRoom>
+  <p class='post-directive'>Please type a message:</p>
+      <input type='text' name='message' class="input" ng-model="message">
+      <button class="btn btn-default setBtn" ng-click='Room.createMessage(message)'>Send</button>
+</div>
 </section>

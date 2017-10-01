@@ -1,15 +1,25 @@
 (function(){
-    function RoomCtrl(Room, $uibModal, $log, Message) {
+    function RoomCtrl(Room, $uibModal, $log, Message, $cookies) {
         this.rooms = Room.all;
         this.room = '';
-        this.getMessages = function(room) {
-            this.currentRoom = room;
-            this.messages = Message.getByRoomId(room);
-            //console.log(this.getMessages);
+
+        this.getMessages = function(roomId, room) {
+            //console.log(roomId)
+            this.currentRoom = roomId;
+            this.messages = Message.getByRoomId(roomId);
+        }
+
+        this.createMessage = function(message) {
+            var newMessage = {};
+            newMessage.username = $cookies.get('blocChatCurrentUser');
+            newMessage.content = message;
+            newMessage.roomId = this.currentRoom;
+            newMessage.timeStamp = firebase.database.ServerValue.TIMESTAMP;
+            //console.log(newMessage.timeStamp);
+            Message.createMessage(newMessage)
         }
 
         this.animationsEnabled = true;
-        this.items = ['item1', 'item2', 'item3'];
         this.open = function (size) {
             var modalInstance = $uibModal.open({
                 animation: this.animationsEnabled,
@@ -18,12 +28,7 @@
                 templateUrl: '/templates/Modal.html',
                 controller: 'ModalCtrl',
                 controllerAs: 'modal',
-                size: size,
-                resolve: {
-                    items: function () {
-                        return this.items;
-                    }
-                }
+                size: size
             });
 
     modalInstance.result.then(function (selectedItem) {
@@ -40,5 +45,5 @@
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', '$uibModal', '$log', 'Message', RoomCtrl]);
+        .controller('RoomCtrl', ['Room', '$uibModal', '$log', 'Message', '$cookies', RoomCtrl]);
 })();
